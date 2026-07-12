@@ -1,3 +1,7 @@
+output "cosmosdb_cassandra_keyspaces_id" {
+  description = "Map of id values across all cosmosdb_cassandra_keyspaces, keyed the same as var.cosmosdb_cassandra_keyspaces"
+  value       = { for k, v in azurerm_cosmosdb_cassandra_keyspace.cosmosdb_cassandra_keyspaces : k => v.id }
+}
 output "cosmosdb_cassandra_keyspaces_account_name" {
   description = "Map of account_name values across all cosmosdb_cassandra_keyspaces, keyed the same as var.cosmosdb_cassandra_keyspaces"
   value       = { for k, v in azurerm_cosmosdb_cassandra_keyspace.cosmosdb_cassandra_keyspaces : k => v.account_name }
